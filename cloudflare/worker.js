@@ -166,6 +166,7 @@ async function api(request, env, url) {
 export default {
   async fetch(request, env) {
     const url=new URL(request.url), headers={'x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin','x-frame-options':'DENY','content-security-policy':"default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"};
+    if(url.pathname==='/favicon.ico' && request.method==='GET') return Response.redirect(new URL('/favicon.svg',url),302);
     if(request.method==='OPTIONS') return new Response(null,{status:204,headers:{...headers,allow:'GET, POST, PATCH, DELETE, OPTIONS'}});
     if(url.pathname.startsWith('/api/') && ['POST','PATCH','DELETE'].includes(request.method) && !originAllowed(request,url)) return json({error:'Запрос отклонён.'},403,headers);
     if(url.pathname==='/health/ready' && request.method==='GET') { try { await env.DB.prepare('SELECT 1').first(); return json({status:'ok'},200,headers); } catch { return json({status:'unavailable'},503,headers); } }
