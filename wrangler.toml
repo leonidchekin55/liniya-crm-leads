@@ -1,0 +1,13 @@
+name = "liniya-crm-leads"
+main = "cloudflare/worker.js"
+compatibility_date = "2026-09-30"
+assets = { directory = "./public", binding = "ASSETS", run_worker_first = ["/api/*", "/telegram/webhook"] }
+
+[secrets]
+required = ["ADMIN_PASSWORD", "SESSION_SECRET", "TELEGRAM_WEBHOOK_SECRET"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "liniya-crm"
+database_id = "56cdfb98-5209-4628-9b8f-940a26b07658"
+migrations_dir = "migrations"

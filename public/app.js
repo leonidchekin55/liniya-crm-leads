@@ -85,7 +85,7 @@ async function refreshBotStatus() {
     if (!status.configured) {
       badge.textContent = 'НЕ НАСТРОЕН';
       badge.style.color = '#a27431';
-      note.textContent = 'Добавьте токен Telegram-бота в защищённые настройки Render, затем нажмите «Настроить Telegram».';
+      note.textContent = 'Добавьте токен Telegram-бота в защищённые настройки Cloudflare, затем нажмите «Настроить Telegram».';
     } else if (status.webhook) {
       badge.textContent = 'ПОДКЛЮЧЁН';
       badge.style.color = 'var(--green)';
