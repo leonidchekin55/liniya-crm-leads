@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.19.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check public/app.js && node --check cloudflare/worker.js",
+    "check": "node --check server.js && node --check public/app.js && node --check public/demo.js && node --check cloudflare/worker.js",
     "check:render": "node --check server.js && node --check public/app.js",
     "db:migrate:remote": "wrangler d1 migrations apply liniya-crm --remote",
     "dev:cloudflare": "wrangler dev",

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Линия — открытое демо CRM</title>
+<meta name="description" content="Посмотрите интерфейс CRM Линия без входа — только на вымышленных демонстрационных данных.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+:root{color-scheme:light;--bg:#f4f5f2;--paper:#fff;--ink:#202722;--muted:#778078;--line:#e8ebe6;--green:#1f6a50;--soft:#e8f3ed;--orange:#fbf0df;--red:#ffebe7;--shadow:0 5px 22px #28332a0b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--green)}button,input{font:inherit}header{height:68px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 max(20px,calc((100% - 1224px)/2));gap:12px}.logo{width:32px;height:32px;border-radius:11px;background:var(--green);display:grid;place-items:center;color:white;font-weight:800;font-size:17px}.brand{font-size:18px;font-weight:720}.label{margin-left:10px;color:var(--muted)}.right{margin-left:auto;color:var(--green);font-size:12px;font-weight:650}main{max-width:1280px;margin:36px auto;padding:0 28px}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:1.1px;font-weight:700;color:var(--green)}h1{font-size:30px;letter-spacing:-1px;margin:6px 0}.intro{color:var(--muted);margin:0}.notice{margin:20px 0;background:#eef5f0;border:1px solid #d8e9de;border-radius:10px;padding:12px 15px;color:#405b49}.notice strong{display:block}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.stat,.panel{background:var(--paper);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow)}.stat{padding:16px 18px}.statlabel{color:var(--muted);font-size:12px}.statval{font-size:25px;font-weight:730;margin-top:5px}.panel{overflow:hidden}.panelhead{padding:17px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center}.panelhead strong{font-size:15px}.panelhead span{color:var(--muted);font-size:12px}.filters{padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);align-items:center}.search{border:1px solid var(--line);background:#fafbf9;border-radius:8px;padding:9px 10px;min-width:210px;outline:none}.pill{border:1px solid var(--line);border-radius:20px;padding:7px 11px;background:white;color:#6d776f;font-size:12px;cursor:pointer}.pill.active{background:var(--soft);border-color:#c9e2d2;color:var(--green);font-weight:650}.tablewrap{overflow:auto}table{width:100%;min-width:760px;border-collapse:collapse}th{text-align:left;padding:11px 16px;color:#909890;font-size:10px;letter-spacing:.55px;text-transform:uppercase;background:#fdfdfc}td{padding:13px 16px;border-top:1px solid #eff1ed;vertical-align:top}.name{font-weight:680}.contact,.source,.date{color:var(--muted);font-size:12px}.contact{margin-top:2px}.request{max-width:360px;color:#59625b;font-size:12px}.tag{display:inline-flex;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:650;background:#edf3e9;color:#587644}.tag.hot{background:var(--red);color:#a6533b}.tag.new{background:var(--soft);color:var(--green)}.tag.wait{background:var(--orange);color:#a27431}.empty{padding:34px;text-align:center;color:var(--muted)}.footer{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--muted);font-size:12px;margin:18px 2px 32px}.footer a{font-weight:650}.demo-only{font-size:11px;color:#647166}
+@media(max-width:700px){main{padding:0 15px;margin:25px auto}.stats{grid-template-columns:repeat(2,1fr);gap:9px}.stat{padding:13px}.statval{font-size:22px}.search{flex:1;min-width:100%}.footer{align-items:flex-start;flex-direction:column}header{padding:0 15px}.right{font-size:11px}}
+</style>
+</head>
+<body>
+<header><div class="logo" aria-hidden="true">л</div><div class="brand">линия</div><div class="label">/ демо CRM</div><a class="right" href="/">Вход менеджера →</a></header>
+<main>
+  <div class="eyebrow">ОТКРЫТОЕ ДЕМО · БЕЗ ВХОДА</div>
+  <h1>Заявки</h1>
+  <p class="intro">Так выглядит рабочий список лидов: поиск, фильтры, источники и теги.</p>
+  <div class="notice"><strong>Только демонстрационные данные</strong>Имена и контакты ниже вымышлены. Изменения и отправка форм в этом режиме отключены; реальные заявки здесь не показываются.</div>
+  <section class="stats" aria-label="Сводка по демонстрационным данным"><div class="stat"><div class="statlabel">Всего лидов</div><div class="statval" id="total">0</div></div><div class="stat"><div class="statlabel">Новые</div><div class="statval" id="new">0</div></div><div class="stat"><div class="statlabel">В работе</div><div class="statval" id="work">0</div></div><div class="stat"><div class="statlabel">Из Telegram</div><div class="statval" id="telegram">0</div></div></section>
+  <section class="panel" aria-label="Демо-заявки">
+    <div class="panelhead"><strong>Примеры заявок</strong><span id="shown">0 записей</span></div>
+    <div class="filters"><input id="search" class="search" type="search" aria-label="Поиск в демо" placeholder="Поиск по имени или запросу"><button class="pill active" data-filter="all" type="button">Все</button><button class="pill" data-filter="new" type="button">Новые</button><button class="pill" data-filter="Telegram" type="button">Telegram</button><button class="pill" data-filter="Ручное добавление" type="button">Вручную</button></div>
+    <div class="tablewrap"><table><thead><tr><th>Клиент</th><th>Запрос</th><th>Тег · статус</th><th>Источник</th><th>Дата</th></tr></thead><tbody id="rows"></tbody></table></div><div id="empty" class="empty" hidden>По этим условиям заявок нет.</div>
+  </section>
+  <div class="footer"><span class="demo-only">Данные встроены в демо-страницу и не связаны с CRM-базой.</span><span><a href="https://t.me/liniya_requests_281026_bot" target="_blank" rel="noopener">Открыть Telegram-бота ↗</a> · <a href="/">Вход менеджера</a></span></div>
+</main>
+<script src="/demo.js" defer></script>
+</body>
+</html>
