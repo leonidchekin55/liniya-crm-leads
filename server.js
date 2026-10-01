@@ -16,7 +16,7 @@ const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
 const webhookSecret = process.env.TELEGRAM_WEBHOOK_SECRET;
 const maxBody = 32 * 1024;
 
-if (!process.env.DATABASE_URL || !sessionSecret || !adminPassword || !webhookSecret) {
+if (!process.env.DATABASE_URL || !sessionSecret || !webhookSecret) {
   throw new Error('Required production configuration is missing.');
 }
 
@@ -158,6 +158,7 @@ async function api(req, res, url) {
   const path = url.pathname;
   if (req.method === 'GET' && path === '/api/session') return json(res, 200, { authorized: readSession(req), botConfigured: Boolean(telegramToken) });
   if (req.method === 'POST' && path === '/api/login') {
+    if (!adminPassword) return json(res, 503, { error: 'Владелец ещё не настроил пароль CRM в Render.' });
     const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
     const current = sessions.get(ip) || { count: 0, until: Date.now() + 60000 };
     if (current.until < Date.now()) { current.count = 0; current.until = Date.now() + 60000; }
